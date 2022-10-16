@@ -1,0 +1,53 @@
+// 对count进行格式化
+function formatCount(count) {
+  var numCount = parseInt(count)
+  if (numCount >= 100000000) {
+    return (numCount / 100000000).toFixed(1) + "亿"
+  } else if (numCount >= 10000) {
+    return (numCount / 10000).toFixed(1) + "万"
+  } else {
+    return numCount
+  }
+}
+
+// function padLeft(time) {
+//   if ((time + ' ').length > 2) {
+//     return time
+//   }
+//   return "0" + time
+// }
+
+// 2 -> 002 -> 02
+// 24 -> 0024 -> 24
+function padLeft(time) {
+  time = time + ""
+  return ("00" + time).slice(time.length)
+}
+
+// 对time进行格式化
+// 100 -> 1:40
+function formatTime(time) {
+  // 0.将毫秒转成秒
+  time = time / 1000
+
+  // 1.获取时间
+  // 向下取整
+  var minute = Math.floor(time / 60)
+  var second = Math.floor(time % 60)
+  return padLeft(minute) + ":" + padLeft(second)
+}
+
+function combine(singer1, singer2) {
+  if (!singer2) {
+    return singer1
+  }
+  return singer1 + "&" + singer2
+}
+
+
+// 必须导出后，才能被其他地方调用：必须使用CommonJS导出
+module.exports = {
+  formatCount: formatCount,
+  formatTime: formatTime,
+  combine: combine
+}

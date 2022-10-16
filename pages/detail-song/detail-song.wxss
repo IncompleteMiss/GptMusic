@@ -1,0 +1,13 @@
+/* pages/detail-song/detail-song.wxss */
+.title {
+  margin: 20rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+
+  margin-bottom: 0rpx;
+}
+
+.song-list {
+  padding: 20rpx;
+  padding-top: 0rpx;
+}
